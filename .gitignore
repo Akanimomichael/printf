@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# System ignores pushing the following files
+*~
+*#
+
+# Also ignores pushing main.c file
+*main.c
