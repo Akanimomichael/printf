@@ -1,53 +1,66 @@
 #include "main.h"
 
+void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - This functions like printf, prints formatted to stdout
- *
- * @format: input string.
- *
- * Return: Returns formatted input to stdout
+ * _printf - Printf function
+ * @format: format
+ * Return: Printed chars.
  */
 int _printf(const char *format, ...)
 {
-	unsigned int x = 0, len = 0, i_bu = 0;
-	va_list arguments;
-	int (*function)(va_list, char *, unsigned int);
-	char *bu;
+	int i, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
+	char buffer[BUFF_SIZE];
 
-	va_start(arguments, format), bu = malloc(sizeof(char) * 1024);
-	if (!format || !bu || (format[x] == '%' && !format[x + 1]))
+	if (format == NULL)
 		return (-1);
-	if (!format[x])
-		return (0);
-	for (x = 0; format && format[x]; x++)
+
+	va_start(list, format);
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (format[x] == '%')
+		if (format[i] != '%')
 		{
-			if (format[x + 1] == '\0')
-			{	print_chr_buf(bu, i_bu), free(bu), va_end(arguments);
-				return (-1);
-			}
-			else
-			{	function = cor2_func_print(format, x + 1);
-				if (function == NULL)
-				{
-					if (format[x + 1] == ' ' && !format[x + 2])
-						return (-1);
-					buffer_hand(bu, format[x], i_bu), len++, x--;
-				}
-				else
-				{
-					len += function(arguments, bu, i_bu);
-					x += cor1_func_print(format, x + 1);
-				}
-			} x++;
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[i], 1);*/
+			printed_chars++;
 		}
 		else
-			buffer_hand(bu, format[x], i_bu), len++;
-		for (i_bu = len; i_bu > 1024; i_bu -= 1024)
-			;
+		{
+			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &i);
+			width = get_width(format, &i, list);
+			precision = get_precision(format, &i, list);
+			size = get_size(format, &i);
+			++i;
+			printed = handle_print(format, &i, list, buffer,
+				flags, width, precision, size);
+			if (printed == -1)
+				return (-1);
+			printed_chars += printed;
+		}
 	}
-	print_chr_buf(bu, i_bu), free(bu), va_end(arguments);
-	return (len);
+
+	print_buffer(buffer, &buff_ind);
+
+	va_end(list);
+
+	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints the contents of the buffer if it exist
+ * @buffer: Array of chars
+ * @buff_ind: Index at which to add next char, represents the length
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
