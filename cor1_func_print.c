@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * ev_print_func - returns the amount of identifiers.
+ * cor1_func_print - This function returns the amount of identifiers.
  * @c: This is a char argument indentifier
  * @idx: This is the index of argument identifier.
  * Return: amount of identifiers.
