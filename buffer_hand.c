@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * handl_buf - joins char
- * @buf: buffer pointer
+ * buffer_hand - join char
+ * @bu: buffer pointer
  * @c: char
- * @ibuf: index of buffer pointer
+ * @i_bu: index of buffer pointer
  * Return: i_bu index.
  */
 unsigned int buffer_hand(char *bu, char c, unsigned int i_bu)
