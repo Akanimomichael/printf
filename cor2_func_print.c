@@ -13,7 +13,9 @@ int (*cor2_func_print(const char *c, int idx))(va_list, char *, unsigned int)
 		{"i", print_id}, {"d", print_id},
 		{"%", print_other}, {"l", print_other},
 		{"h", print_other}, {" %", print_other},
-		{NULL, NULL},
+		{"b", print_b}, {"u", print_u},
+		{"o", print_o}, {"x", print_x},
+		{"X", print_xx}, {NULL, NULL},
 	};
 	int x = 0, y = 0, first_index;
 
