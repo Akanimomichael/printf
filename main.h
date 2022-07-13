@@ -6,11 +6,11 @@
 #include <stdlib.h>
 
 /**
- * struct printfunction - the struct defined for printer functions
+ * struct printerfunctions - the struct defined for printer functions
  * @type_arg: this is an identifier
  * @f: printer functions
  *
- * Description: This is a struct that stores pointer functions 
+ * Description: This is a struct that stores pointer functions
  */
 typedef struct printerfunctions
 {
