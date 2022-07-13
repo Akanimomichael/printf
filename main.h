@@ -27,5 +27,13 @@ int print_c(va_list arguments, char *bu, unsigned int i_bu);
 int print_id(va_list arguments, char *bu, unsigned int i_bu);
 int print_s(va_list arguments, char *bu, unsigned int i_bu);
 int print_other(va_list a __attribute__((unused)), char *bu, unsigned int x);
+int print_u(va_list arguments, char *bu, unsigned int i_bu);
+int print_b(va_list arguments, char *bu, unsigned int i_bu);
+int print_x(va_list arguments, char *bu, unsigned int i_bu);
+int print_o(va_list arguments, char *bu, unsigned int i_bu);
+int print_xx(va_list arguments, char *bu, unsigned int i_bu);
+char *binary_arr(char *binary, long int int_in, int isneg, int limit);
+char *oct_arr(char *bnr, char *oct);
+char *hex_arr(char *bnr, char *hex, int isupp, int limit);
 
 #endif
