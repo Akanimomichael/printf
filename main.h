@@ -3,20 +3,13 @@
 /**
  * struct printfunction - the struct defined for printer functions
  * @type_arg: this is an identifier
- * @pf: this is a printer functions
- * struct print - the struct defined for printer functions
- * @type_arg: identifier
  * @f: printer functions
  *
- * Description: This is a struct that stores pointer functions
- * Description: function pointer 
+ * Description: This is a struct that stores pointer functions 
  */
 typedef struct printerfunctions
-typedef struct print
 {
 	char *type_arg;
-	int (*pf)(va_list, char *, unsigned int);
-} print_t;
 	int (*f)(va_list, char *, unsigned int);
 } func_point;
 
