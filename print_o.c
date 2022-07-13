@@ -25,9 +25,9 @@ int print_o(va_list arguments, char *bu, unsigned int i_bu)
 		isnegative = 1;
 	}
 	b = malloc(sizeof(char) * (32 + 1));
-	b = fill_binary_array(b, int_input, isnegative, 32);
+	b = binary_arr(b, int_input, isnegative, 32);
 	o = malloc(sizeof(char) * (11 + 1));
-	o = fill_oct_array(b, o);
+	o = oct_arr(b, o);
 	for (first_digit = x = count = 0; o[x]; x++)
 	{
 		if (o[x] != '0' && first_digit == 0)

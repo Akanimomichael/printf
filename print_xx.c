@@ -16,7 +16,7 @@ int print_xx(va_list arguments, char *bu, unsigned int i_bu)
 	isnegative = 0;
 	if (int_input == 0)
 	{
-		i_bu = buffer_handle(bu, '0', i_bu);
+		i_bu = buffer_hand(bu, '0', i_bu);
 		return (1);
 	}
 	if (int_input < 0)

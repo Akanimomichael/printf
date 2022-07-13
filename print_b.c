@@ -25,7 +25,7 @@ int print_b(va_list arguments, char *bu, unsigned int i_bu)
 		isnegative = 1;
 	}
 	b = malloc(sizeof(char) * (32 + 1));
-	b = fill_binary_array(b, int_input, isnegative, 32);
+	b = binary_arr(b, int_input, isnegative, 32);
 	first_fig = 0;
 	for (count = x = 0; b[x]; x++)
 	{
