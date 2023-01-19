@@ -4,6 +4,6 @@ A collaborative project in ALX Sorfware Engineering program carried out by Akani
 This _printf() functions like "printf". It performs formatted output conversion and prints the expected data.
 
 Prototype:
-	int _printf(const char *format, ...) 
+	int _printf(const char *format, ..) 
 
 
